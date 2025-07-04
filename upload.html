@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload Movie</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #e50914;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 20px;
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>📤 Upload New Movie (Admin Form)</h1>
+
+  <label>Movie Title</label>
+  <input type="text" id="title" placeholder="e.g. Jawan" />
+
+  <label>Release Year</label>
+  <input type="text" id="year" placeholder="e.g. 2023" />
+
+  <label>Language</label>
+  <input type="text" id="lang" placeholder="e.g. Hindi" />
+
+  <label>Poster Image URL or Path</label>
+  <input type="text" id="poster" placeholder="e.g. assets/images/jawan.jpg" />
+
+  <label>Detail Page Link</label>
+  <input type="text" id="page" placeholder="e.g. movies/jawan.html" />
+
+  <button onclick="generate()">Generate Movie Entry</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generate() {
+      const title = document.getElementById('title').value;
+      const year = document.getElementById('year').value;
+      const lang = document.getElementById('lang').value;
+      const poster = document.getElementById('poster').value;
+      const page = document.getElementById('page').value;
+
+      const movie = {
+        title: title,
+        year: year,
+        lang: lang,
+        poster: poster,
+        page: page
+      };
+
+      document.getElementById('output').textContent = JSON.stringify(movie, null, 2);
+    }
+  </script>
+</body>
+</html>
